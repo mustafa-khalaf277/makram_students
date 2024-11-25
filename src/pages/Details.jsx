@@ -29,9 +29,6 @@ export default function Details() {
     })
   useEffect(()=> {
     ExamDetails(params.id, setLoader, setError, setData, navigate)
-    console.log(loader)
-    console.log(error)
-    console.log(data)
   }, [params.id])
   return (
     <div>
