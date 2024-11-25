@@ -1,0 +1,1 @@
+export {default as ExamsData} from "./ExamsData.jsx"
