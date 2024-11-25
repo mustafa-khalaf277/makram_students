@@ -88,7 +88,7 @@ export default function ExamsData() {
     Swal.fire({
       html: `
       <div class="w-full text-right text-xl relative min-h-[200px]" >
-      <img class="absolute -z-10 opacity-[0.2] h-full left-1/2 -translate-x-1/2 bottom-0" src="http://localhost:8080/ahmed-makram/api/inc/static/img/20240131_214333_39.png" alt=""/>
+      <img class="absolute -z-10 opacity-[0.2] h-full left-1/2 -translate-x-1/2 bottom-0" src="https://ahmed-makram.com//uploads/static/site/20240131_214333_39.png" alt=""/>
       ${data.Corrected === 0?"<div class='w-full grid place-items-center h-full text-2xl '>جار تصحيح الامتحان</div>": `
       ${img != null? `<div class="rounded-full  w-[200px] h-[200px] bg-red-100
       mx-auto my-5 grid place-items-center overflow-hidden"> <img src="${img}"
@@ -117,7 +117,7 @@ export default function ExamsData() {
       <span class="font-medium">
       <span>حالة الامتحان </span>:
       <span class=" px-2 mt-3 ">
-      <a class="text-black underline" href="/exam/results/${data.id}">عرض
+      <a class="text-black underline" href="${ import.meta.env.VITE_BASENAME }/exam/results/${data.id}">عرض
       النتيجة</a>
 
       </span>

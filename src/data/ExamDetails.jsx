@@ -14,7 +14,7 @@ export async function ExamDetails(id, setLoader, setError, setData, navigate) {
         navigate(`/`)
         break;
       case 204:
-        window.location = `/`
+    //    window.location = `/`
         break;
     }
   }catch(e) {

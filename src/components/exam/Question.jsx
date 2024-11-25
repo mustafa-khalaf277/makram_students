@@ -25,6 +25,12 @@ import Text from "./Text.jsx"
 import {
   RiSaveLine
 } from "react-icons/ri";
+import {
+  IoSaveOutline
+} from "react-icons/io5";
+import {
+  IoMdSave
+} from "react-icons/io";
 export default function Question( {
   exam_data, unCompletedquestions_count, examId, count_of_suggestions
 }) {
@@ -268,16 +274,9 @@ export function Playsounds(sounds, type) {
     sounds.play()
   }
 }
-import {
-  IoSaveOutline
-} from "react-icons/io5";
-import {
-  IoMdSave
-} from "react-icons/io";
 function Save( {
   is_save, setLoader, id
 }) {
-
   const HandleSave = ()=> {
     setLoader(true)
     Axios.get(`${import.meta.env.VITE_BACKEND_URL}/save.php?id=${id}`).then(e => {
@@ -295,15 +294,19 @@ function Save( {
   }
 
   const [save,
-    setSave] = useState(0)
-  useEffect(_=>setSave(is_save),
-    [is_save])
+    setSave] = useState(is_save)
+  useEffect(_=> {
+    setSave(is_save)
+  },
+    [is_save,
+      id])
   return(
     <div className="hover:scale-[1.15] duration-500" onClick={HandleSave}>
       {!save && <SaveAddIcon />
       }
       {save == 1 && <SaveRemoveIcon />
       }
+
     </div>
   )
 }

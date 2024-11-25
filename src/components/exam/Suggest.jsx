@@ -33,7 +33,6 @@ export default function Suggest( {
       GetIdea(question_id).then(e => {
         if (e) {
           if (e.status == "success" && e.suggest != null) {
-            console.log(e)
             setIdea(e.suggest)
             setSuggestCount(e.suggestionsCount)
             Swal.fire({
@@ -49,7 +48,7 @@ export default function Suggest( {
   }
   return (
     <div>
-      {suggestCount != 0 &&
+
       <button onClick={HandleClick} className="h-10 flex items-center gap-2
         w-max justify-between bg-black mx-auto
         text-white text-3xl px-2 py-6  rounded duration-500 border-4
@@ -58,7 +57,7 @@ export default function Suggest( {
         <img className="h-9" src={Img} />
       <span className="mt-2 ">{suggestCount}</span>
     </button>
-    }
+
   </div>
 )
 }

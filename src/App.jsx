@@ -12,7 +12,7 @@ import {
 } from "./pages/index.js"
 export default function App() {
   return (
-    <Router basename="/s">
+    <Router basename={ import.meta.env.VITE_BASENAME }>
       <Routes>
         <Route index element={<AllExamsResults />} />
         <Route path={"/exam/:id/details"} element={<Details />} />
