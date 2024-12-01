@@ -33,8 +33,8 @@ export default function Archive() {
     setPage] = useSearchParams()
   useEffect(()=> {
     window.scrollTo({
-      x: 0,
-      y: 0,
+      left: 0,
+      top: 0,
       behavior: "smooth"
     })
     ArchiveData(page).then(e => {

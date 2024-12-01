@@ -34,8 +34,8 @@ export default function ExamsData() {
     setPage] = useSearchParams()
   useEffect(()=> {
     window.scrollTo({
-      x: 0,
-      y: 0,
+      top: 0,
+      left: 0,
       behavior: "smooth"
     })
     AllResults(page).then(e => {
@@ -84,17 +84,16 @@ export default function ExamsData() {
   }
 
   const HandleShowDetails = (data, img)=> {
-    console.log(img)
     Swal.fire({
       html: `
       <div class="w-full text-right text-xl relative min-h-[200px]" >
       <img class="absolute -z-10 opacity-[0.2] h-full left-1/2 -translate-x-1/2 bottom-0" src="https://ahmed-makram.com//uploads/static/site/20240131_214333_39.png" alt=""/>
-      ${data.Corrected === 0?"<div class='w-full grid place-items-center h-full text-2xl '>جار تصحيح الامتحان</div>": `
+      ${data.Corrected === 0?"<div class='w-full grid place-items-center h-full text-2xl '>جاري تصحيح الامتحان</div>": `
       ${img != null? `<div class="rounded-full  w-[200px] h-[200px] bg-red-100
       mx-auto my-5 grid place-items-center overflow-hidden"> <img src="${img}"
       class="w-full h-full" alt='img'/></div>`: ""}
       <div>
-      <span>الاسئلة</span> :
+      <span>الأسئلة</span> :
       <span class="font-medium text-black"> ${data.total_questions}</span>
       </div>
       <div>
@@ -106,11 +105,11 @@ export default function ExamsData() {
       <span class="font-medium text-black"> ${data.exam_marks} / ${data.marks}</span>
       </div>
       <div>
-      <span>الاسئلة المسلمة </span> :
+      <span>الأسئلة المسلَمة </span> :
       <span class="font-medium text-black"> ${data.completed}</span>
       </div>
       <div>
-      <span>الاسئلة الصحيحه</span> :
+      <span>الأسئلة الصحيحة</span> :
       <span class="font-medium text-black"> ${data.success}</span>
       </div>
       <div>
@@ -149,25 +148,25 @@ export default function ExamsData() {
               <th scope="col" className="px-6 py-3  md:min-w-44 ">
                 الامتحان
               </th>
-              <th scope="col" className="px-6 py-3 hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 الاسئلة
               </th>
-              <th scope="col" className="px-6 py-3 hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 النتيجة
               </th>
-              <th scope="col" className="px-6 py-3 hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 الدرجات
               </th>
-              <th scope="col" className="px-6 py-3  hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3  hidden md:table-cell">
                 الاسئلة المسلمة
               </th>
-              <th scope="col" className="px-6 py-3 hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 الاسئلة الصحيحة
               </th>
-              <th scope="col" className="px-6 py-3 hidden sm:table-cell">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 حالة الامتحان
               </th>
-              <th className="px-6 py-3 sm:hidden ">
+              <th className="px-6 py-3 md:hidden ">
                 معلومات
               </th>
             </tr>
@@ -185,23 +184,23 @@ export default function ExamsData() {
                     item.Corrected === 0? item.title: <Link to={"/exam/results/1"}> {item.title}</Link>
                     }
                   </th>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     {item.total_questions}
 
                   </td>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     {(item.exam_marks/item.marks * 100).toFixed(2)}%
                   </td>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     {item.exam_marks} / {item.marks}
                   </td>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     {item.completed}
                   </td>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     {item.success}
                   </td>
-                  <td className="px-6 py-4 hidden sm:table-cell">
+                  <td className="px-6 py-4 hidden md:table-cell">
                     <button className={`w-full p-2
                       rounded
                       ${
@@ -219,7 +218,7 @@ export default function ExamsData() {
                       }
                     </button>
                   </td>
-                  <td className="px-6 py-3 sm:hidden ">
+                  <td className="px-6 py-3 md:hidden ">
                     <button onClick={_=>HandleShowDetails(item, data.img)} className="text-3xl text-blue-600"><CgMoreO /></button>
                   </td>
                 </motion.tr>
@@ -265,7 +264,7 @@ export default function ExamsData() {
 
         </div>
         <p className="text-slate-600">
-          صفحه <strong className="text-slate-800">
+          صفحة <strong className="text-slate-800">
             <select ref={select} onChange={e=> HandleChangePage(e.target.value)} className="outline-0 mx-2">
             </select>
           </strong>

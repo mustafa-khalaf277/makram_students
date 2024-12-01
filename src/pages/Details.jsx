@@ -48,7 +48,7 @@ export default function Details() {
     const navigate = useNavigate();
     const HandleOpenExam = ()=> {
       Swal.fire({
-        title: "هل انت مستعد لدخول الاختبار ؟",
+        title: "هل أنت مستعد لدخول الاختبار ؟",
         icon: "question",
         cancelButtonText: "لا",
         confirmButtonText: "نعم",
@@ -74,7 +74,7 @@ export default function Details() {
             {data.data.title}
           </div>
           <div className="text-lg md:text-xl mt-3 sm:mt-6">
-            عدد الاسئله :    <span className="font-bold">{data.data.questions_count }</span> سؤال
+            عدد الأسئلة :    <span className="font-bold">{data.data.questions_count }</span> سؤال
           </div>
           <div className="text-lg md:text-xl mt-3 sm:mt-6">
             درجات الامتحان :    <span className="font-bold">{data.data.marks }</span>
@@ -83,7 +83,7 @@ export default function Details() {
             الوصف:  <span className="text-black/70 font-medium">{data.data.description }</span>
           </div>
           <div className="text-xl mt-3 sm:mt-6">
-            تاريخ الانشاء :    <span className="font-bold">{data.data.created_at }</span>
+            تاريخ الإنشاء :    <span className="font-bold">{data.data.created_at }</span>
           </div>
           <div className=" mt-5 sm:mt-10 text-center">
             <button onClick={HandleOpenExam} className=" px-8 font-bold

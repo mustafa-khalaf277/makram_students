@@ -79,10 +79,10 @@ export default function Question( {
   const HandleSubmitAnswer = ()=> {
     if (answer != null) {
       Swal.fire({
-        title: "هل تريد تسليم الاجابة ؟",
-        text: "اذا قمت بتسليم الاجابة لن تستطيع تغييرها مجددا",
+        title: "هل تريد تسليم الإجابة ؟",
+        text: "إذا قمت بتسليم الإجابة لن تستطيع تغييرها مجددًا",
         icon: "question",
-        cancelButtonText: "الغاء",
+        cancelButtonText: "إلغاء",
         confirmButtonText: "تسليم",
         showCloseButton: true,
         showCancelButton: true
